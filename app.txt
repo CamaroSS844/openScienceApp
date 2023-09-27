@@ -1,0 +1,105 @@
+import { StatusBar } from 'expo-status-bar';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
+
+import React from 'react';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
+
+//import a couple of firebase hooks
+import {useAuthState} from 'react-firebase-hooks/auth';
+import {useCollectionData} from 'react-firebase-hooks/firestore';
+
+
+
+//initialize firebase
+firebase.initializeApp({
+  //your config from firebase
+  apiKey: "AIzaSyCp8wVCZPWrkR2ag9oPW4MS-fgjMhJJfpU",
+  authDomain: "open-science-app.firebaseapp.com",
+  projectId: "open-science-app",
+  storageBucket: "open-science-app.appspot.com",
+  messagingSenderId: "629385220466",
+  appId: "1:629385220466:web:b41fbaed3625998e5d4deb",
+  measurementId: "G-2YK0VFQPKD"
+})
+
+const db = firebase.firestore();
+const auth = firebase.auth();
+const storage = firebase.storage();
+
+auth.onAuthStateChanged(user => { 
+  // Check for user status
+});
+
+export default function App() {
+
+  //to know if a user is logged in
+  //signed in user will be an object, signed out user will be null
+  const [user] = useAuthState(auth);
+
+  return (
+    <View style={styles.container}>
+      <StatusBar style="auto" />
+      <Text>Open Science App</Text>
+      <View>
+        {user ? <ChatRoom /> : <SignIn />}
+      </View>
+
+      
+    </View>
+  );
+}
+
+function SignIn() {
+  const signInWithGoogle = () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    auth.signInWithPopup(provider);
+  }
+  return (
+    <Pressable onPress={signInWithGoogle}>
+      <Text>Sign In With Google</Text>
+    </Pressable>
+  )
+}
+
+function SignOut() {
+  return auth.currentUser && (
+    <Pressable onPress={() => auth.signOut()}>
+      <Text>Sign Out</Text>
+    </Pressable>
+  )
+}
+
+function ChatRoom() {
+  const messagesRef = firestore.collection('messages');
+  const query = messagesRef.orderBy('createdAt').limit(25);
+
+  const [messages] = useCollectionData(query, {idField: 'id'});
+
+  retrun (
+    <View>
+      <View>
+        {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
+      </View>
+    </View>
+  )
+}
+
+function ChatMessage(props) {
+  const {text, uid} = props.message;
+  return (
+    <View>
+      <Text>{text}</Text>
+    </View>
+  )
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
