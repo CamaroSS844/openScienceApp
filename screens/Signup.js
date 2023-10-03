@@ -11,8 +11,8 @@ export default function Signup({ navigation }){
 
     const onSignup = () => {
         //added username which wasnt there in the tutorial
-        if (email !== "" && password !== "" && username !== ""){
-            createUserWithEmailAndPassword(auth, email, password, username)
+        if (email !== "" && password !== ""){
+            createUserWithEmailAndPassword(auth, email, password)
                 .then(() => console.log("Signup success"))
                 .catch((err) => Alert.alert("Signup error", err.message))
         }
@@ -42,7 +42,7 @@ export default function Signup({ navigation }){
             <TextInput
               style={{...styles.input, borderColor: '#3EB6AF'}}
               onChangeText={email => setEmail(email)}
-              value={username}
+              value={email}
               placeholder="Enter Email"
               keyboardType="email-address"
               inputMode="email"
@@ -60,7 +60,7 @@ export default function Signup({ navigation }){
             />
             <View style={styles.buttonSection}>
               <Pressable style={{...styles.btn, backgroundColor: '#3EB6AF'}} onPress={() => onSignup()}>
-                <Text style={{color: '#fff'}}>Login</Text>
+                <Text style={{color: '#fff'}}>Signup</Text>
               </Pressable>
               <Pressable style={{...styles.btn, backgroundColor: '#d43333'}}>
                 <Text style={{color: '#fff'}}>Clear</Text>
