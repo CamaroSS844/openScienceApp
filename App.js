@@ -5,6 +5,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./config/firebase"
 
+
 import Chat from "./screens/Chat";
 import Login from "./screens/Login";
 import Signup from "./screens/Signup";
@@ -44,17 +45,17 @@ function AuthStack(){
 }
 
 function RootNavigator(){
-  const {user, setUser} = useContext(AuthUserContext);
+  const user = useContext(AuthUserContext);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, 
       async authenticateduser => {
-        authenticateduser? setUser(authenticateduser) : setUser(null);
+        authenticateduser? user.setAuthUser(authenticateduser) : user.setAuthUser(null);
         console.log(authenticateduser);
         setLoading(false);
       });
       return () => unsubscribe();
-  }, [user])
+  }, [user.authUser])
 
   if(loading) {
     return (
@@ -66,7 +67,7 @@ function RootNavigator(){
 
   return (
     <NavigationContainer>
-      {user? <ChatStack />: <AuthStack />}
+      {user.authUser? <ChatStack />: <AuthStack />}
     </NavigationContainer>
   )
 }

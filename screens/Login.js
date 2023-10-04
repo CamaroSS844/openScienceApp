@@ -33,7 +33,7 @@ export default function Login({ navigation }){
             <TextInput
               style={{...styles.input, borderColor: '#3EB6AF'}}
               onChangeText={email => setEmail(email)}
-              value={username}
+              value={email}
               placeholder="Enter Email"
               keyboardType="email-address"
               textContentType="emailAddress"
