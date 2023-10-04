@@ -2,6 +2,13 @@ import React from "react";
 import { View, Pressable, TouchableOpacity, Text, ScrollView, StyleSheet } from "react-native";
 import { FontAwesome } from '@expo/vector-icons';
 import { useNavigation } from "@react-navigation/native";
+import HomeScreen from "./HomeScreen";
+import Profile from "./Profile";
+import SettingsScreen from "./SettingsScreen";
+import Journal from "./Journal";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+const Tab = createBottomTabNavigator();
 
 
 //i will create two functions. 
@@ -13,22 +20,12 @@ import { useNavigation } from "@react-navigation/native";
 export default function Home({navigation}){
 
     return (
-        <View>
-            <Pressable>
-                <Text>go to chat</Text>
-            </Pressable>
-        </View>
+        <Tab.Navigator>
+            <Tab.Screen name="HomeScreen" component={HomeScreen} />
+            <Tab.Screen name="Profile" component={SettingsScreen} />
+            <Tab.Screen name="Settings" component={SettingsScreen} />
+            <Tab.Screen name="Journal" component={SettingsScreen} />
+        </Tab.Navigator>
     )
 
-
 }
-
-
-const styles = StyleSheet.create({
-    main: {
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center"
-    }
-
-})

@@ -28,7 +28,12 @@ const AuthUserProvider = ({ children }) => {
 
 function ChatStack(){
   return (
-    <Stack.Navigator defaultScreenOptions = {Home}>
+    <Stack.Navigator defaultScreenOptions = {Home} screenOptions={{
+      gestureEnabled: true,
+      gestureResponseDistance: 50,
+      gestureDirection: 'horizontal',
+      headerShown: false
+    }}>
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Chat" component={Chat} />
     </Stack.Navigator>
@@ -51,7 +56,6 @@ function RootNavigator(){
     const unsubscribe = onAuthStateChanged(auth, 
       async authenticateduser => {
         authenticateduser? user.setAuthUser(authenticateduser) : user.setAuthUser(null);
-        console.log(authenticateduser);
         setLoading(false);
       });
       return () => unsubscribe();
