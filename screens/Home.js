@@ -1,12 +1,13 @@
 import React from "react";
 import { View, Pressable, TouchableOpacity, Text, ScrollView, StyleSheet } from "react-native";
-import { FontAwesome } from '@expo/vector-icons';
+import { Entypo, FontAwesome, Ionicons } from '@expo/vector-icons';
 import { useNavigation } from "@react-navigation/native";
 import HomeScreen from "./HomeScreen";
 import Profile from "./Profile";
 import SettingsScreen from "./SettingsScreen";
 import Journal from "./Journal";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
 
 const Tab = createBottomTabNavigator();
 
@@ -20,11 +21,70 @@ const Tab = createBottomTabNavigator();
 export default function Home({navigation}){
 
     return (
-        <Tab.Navigator>
-            <Tab.Screen name="HomeScreen" component={HomeScreen} />
-            <Tab.Screen name="Profile" component={SettingsScreen} />
-            <Tab.Screen name="Settings" component={SettingsScreen} />
-            <Tab.Screen name="Journal" component={SettingsScreen} />
+        <Tab.Navigator  defaultScreenOptions = {HomeScreen} screenOptions={{
+            tabBarShowLabel: false,
+            tabBarHideOnKeyboard: true,
+        }}>
+            <Tab.Screen
+              name="Profile"
+              component={Profile}
+              options={({ route }) => ({
+                headerShown: false,
+                tabBarIcon: ({ focused }) => {
+                  return (
+                    <FontAwesome name="bell" 
+                        size={focused ? 28 : 23}
+                        color={focused ? "black" : "gray"}
+                     />
+                  );
+                },
+              })}
+            />
+            <Tab.Screen
+              name="HomeScreen"
+              component={HomeScreen}
+              options={({ route }) => ({
+                headerShown: false,
+                tabBarIcon: ({ focused }) => {
+                  return (
+                    <Entypo name="home" 
+                        size={focused ? 28 : 23}
+                        color={focused ? "black" : "gray"}
+                     />
+                  );
+                },
+              })}
+            />
+            <Tab.Screen
+              name="Chat"
+              component={SettingsScreen}
+              options={({ route }) => ({
+                headerShown: false,
+                tabBarIcon: ({ focused }) => {
+                  return (
+                    <Ionicons name="chatbubbles" 
+                        size={focused ? 28 : 23}
+                        color={focused ? "black" : "gray"}
+                     />
+                  );
+                },
+              })}
+            />
+            <Tab.Screen
+              name="Journal"
+              component={Journal}
+              options={({ route }) => ({
+                headerShown: false,
+                tabBarIcon: ({ focused }) => {
+                  return (
+                    <Entypo name="book" 
+                        size={focused ? 28 : 23}
+                        color={focused ? "black" : "gray"}
+                     />
+                  );
+                },
+              })}
+            />
         </Tab.Navigator>
     )
 
