@@ -3,9 +3,9 @@ import { View, Pressable, TouchableOpacity, Text, ScrollView, StyleSheet } from 
 import { Entypo, FontAwesome, Ionicons } from '@expo/vector-icons';
 import { useNavigation } from "@react-navigation/native";
 import HomeScreen from "./HomeScreen";
-import Profile from "./Profile";
-import SettingsScreen from "./SettingsScreen";
+import Chat from "./ChatsScreen";
 import Journal from "./Journal";
+import Notifications from "./notifications";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 
@@ -26,8 +26,8 @@ export default function Home({navigation}){
             tabBarHideOnKeyboard: true,
         }}>
             <Tab.Screen
-              name="Profile"
-              component={Profile}
+              name="Notifications"
+              component={Notifications}
               options={({ route }) => ({
                 headerShown: false,
                 tabBarIcon: ({ focused }) => {
@@ -57,27 +57,12 @@ export default function Home({navigation}){
             />
             <Tab.Screen
               name="Chat"
-              component={SettingsScreen}
+              component={Chat}
               options={({ route }) => ({
                 headerShown: false,
                 tabBarIcon: ({ focused }) => {
                   return (
                     <Ionicons name="chatbubbles" 
-                        size={focused ? 28 : 23}
-                        color={focused ? "black" : "gray"}
-                     />
-                  );
-                },
-              })}
-            />
-            <Tab.Screen
-              name="Journal"
-              component={Journal}
-              options={({ route }) => ({
-                headerShown: false,
-                tabBarIcon: ({ focused }) => {
-                  return (
-                    <Entypo name="book" 
                         size={focused ? 28 : 23}
                         color={focused ? "black" : "gray"}
                      />

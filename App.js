@@ -10,6 +10,7 @@ import Chat from "./screens/Chat";
 import Login from "./screens/Login";
 import Signup from "./screens/Signup";
 import Home from "./screens/Home";
+import Profile from "./screens/Profile";
 
 export const variable = "hello";
 
@@ -36,6 +37,7 @@ function ChatStack(){
     }}>
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Chat" component={Chat} />
+      <Stack.Screen name="Profile" component={Profile} />
     </Stack.Navigator>
   )
 }

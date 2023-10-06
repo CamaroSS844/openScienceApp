@@ -23,7 +23,9 @@ export default{
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.brainbox.openScienceApp",//com.companyname.appname
+      "versionCode": 1,
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -34,7 +36,10 @@ export default{
       projectId: process.env.PROJECT_ID,
       storageBucket: process.env.STORAGE_BUCKET,
       messagingSenderId: process.env.MESSAGING_SENDER_ID,
-      appId: process.env.APP_ID
+      appId: process.env.APP_ID,
+      "eas": {
+        "projectId": "9a6bef30-dc8d-4768-9cf9-675d4508abee"
+      }
     }
   }
 }

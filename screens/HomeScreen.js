@@ -2,45 +2,104 @@ import React from 'react';
 import { Text, View, StyleSheet, ScrollView, Pressable } from 'react-native';
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
 
-function section(){
+export function MyHeader(){
     return (
-        <Touchable>
-            <Ionicons name='earth' size={24} color='black' />
-            <View>
-                <Text>Section</Text>
-                <Text>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Donec vel nunc eget magna aliquam aliquet. Nulla facilisi.
-                    Donec vel nunc eget magna aliquam aliquet. Nulla facilisi.
-                    Donec vel nunc eget magna aliquam aliquet. Nulla facilisi.
-                </Text>
+        <View style={styles.head}>
+                <Pressable onPress={() => navigation.navigate("Profile")}>
+                    <FontAwesome name="user-circle-o" 
+                            size={25}
+                            color="black"
+                    />
+                </Pressable>
+                <Pressable style={styles.search}>
+                    <FontAwesome name='search' size={15} color='black' />
+                    <Text style={{paddingLeft: 5}}>Search</Text>
+                </Pressable>
+                <Pressable>
+                    <FontAwesome name='plus-square' size={25} color='black' />
+                </Pressable>
             </View>
-        </Touchable>
     )
 }
 
 
-export default function HomeScreen() {
+export default function HomeScreen({navigation}) {
     
     return (
         <View>
-            <View style={{display: 'flex', flexDirection: 'row',justifyContent: 'space-evenly', alignItems: 'center'}}>
-                <Pressable>
-                    <FontAwesome name="user-circle-o" 
-                            size={20}
-                            color="black"
-                    />
-                </Pressable>
-                <Pressable style={{display: 'flex', flexDirection: 'row',justifyContent: 'space-evenly', alignItems: 'center', }}>
-                    <FontAwesome name='search' size={20} color='black' />
-                    <Text>Search</Text>
-                </Pressable>
-                <Pressable>
-                    <FontAwesome name='users' size={20} color='black' />
-                </Pressable>
-            </View>
+            <MyHeader />
             <ScrollView>
                     <Text style = {styles.title}>Explore</Text>
+
+                    {/* <section /> */}
+
+                    <View style={styles.div}>
+
+                    <Pressable style={styles.section}>
+                        <Ionicons name='earth' size={45} color='black' />
+                        <View style={{paddingTop: 10}}>
+                            <Text style={styles.sectHead}>Section</Text>
+                            <Text style={styles.sectPara}>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            </Text>
+                        </View>
+                    </Pressable>
+
+                    <Pressable style={styles.section}>
+                        <Ionicons name='earth' size={45} color='black' />
+                        <View style={{paddingTop: 10}}>
+                            <Text style={styles.sectHead}>Section</Text>
+                            <Text style={styles.sectPara}>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            </Text>
+                        </View>
+                    </Pressable>
+                    </View>
+                    <View style={styles.div}>
+                    <Pressable style={styles.section}>
+                        <Ionicons name='earth' size={45} color='black' />
+                        <View style={{paddingTop: 10}}>
+                            <Text style={styles.sectHead}>Section</Text>
+                            <Text style={styles.sectPara}>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            </Text>
+                        </View>
+                    </Pressable>
+
+                    <Pressable style={styles.section}>
+                        <Ionicons name='earth' size={45} color='black' />
+                        <View style={{paddingTop: 10}}>
+                            <Text style={styles.sectHead}>Section</Text>
+                            <Text style={styles.sectPara}>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            </Text>
+                        </View>
+                    </Pressable>
+                    </View>
+                    <View style={styles.div}>
+
+                    <Pressable style={styles.section}>
+                        <Ionicons name='earth' size={45} color='black' />
+                        <View style={{paddingTop: 10}}>
+                            <Text style={styles.sectHead}>Section</Text>
+                            <Text style={styles.sectPara}>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            </Text>
+                        </View>
+                    </Pressable>
+
+                    <Pressable style={styles.section}>
+                        <Ionicons name='earth' size={45} color='black' />
+                        <View style={{paddingTop: 10}}>
+                            <Text style={styles.sectHead}>Section</Text>
+                            <Text style={styles.sectPara}>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            </Text>
+                        </View>
+                    </Pressable>
+                    </View>
+
+
             </ScrollView>
         </View>
     )
@@ -58,7 +117,28 @@ const styles = StyleSheet.create({
     },
     section: {
         display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        padding: 15,
+        margin: 10,
+        width: 185,
+        height: 200,
+        borderRadius: 10,
+        backgroundColor: 'lightgray',
 
+    },
+    sectHead: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        paddingTop: 10,
+        padding: 5,
+        paddingBottom: 0,
+        fontFamily: 'sans-serif-light',
+    },
+    sectPara: {
+        fontSize: 15,
+        fontFamily: 'sans-serif',
+        padding: 5
     },
     heading: {
         fontSize: 20,
@@ -71,6 +151,31 @@ const styles = StyleSheet.create({
         padding: 20,
     },
     head: {
-        
+        padding: 0.5,
+        display: 'flex', 
+        flexDirection: 'row',
+        justifyContent: 'space-evenly', 
+        alignItems: 'center',
+        backgroundColor:'#fff',
+        width: '100%',
+    },
+    search: {
+        display: 'flex', 
+        flexDirection: 'row',
+        justifyContent: 'center', 
+        alignItems: 'center',
+        padding: 5,
+        borderColor: 'black',
+        borderRadius: 5,
+        borderWidth: 0.5,
+        margin: 10,
+        width: '60%',
+    },
+    div: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        flexWrap: 'wrap',
+        width: '100%',
     }
 })
