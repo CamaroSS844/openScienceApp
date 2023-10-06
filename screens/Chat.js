@@ -14,9 +14,9 @@ import {
     addDoc,
     snapshotEqual,
 } from "firebase/firestore";
-import { signout } from "../firebase/auth";
+import { signOut } from "firebase/auth";
 import { useNavigation } from "@react-navigation/native";
-import { database, auth } from "../firebase/config";
+import { database, auth } from "../config/firebase";
 import { AntDesign } from "@expo/vector-icons";
 import { GiftedChat } from "react-native-gifted-chat";
 
@@ -25,7 +25,7 @@ export default function Chat(){
     const navigation = useNavigation();
 
     const onSignout = () => {
-        signout(auth).catchError((error) => console.log(error.message));
+        signOut(auth).catchError((error) => console.log(error.message));
     };
 
     useLayoutEffect(() => {

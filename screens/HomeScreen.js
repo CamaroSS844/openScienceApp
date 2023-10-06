@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
 
     },
     sectHead: {
-        fontSize: 18,
+        fontSize: 13,
         fontWeight: 'bold',
         paddingTop: 10,
         padding: 5,
@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
         fontFamily: 'sans-serif-light',
     },
     sectPara: {
-        fontSize: 15,
+        fontSize: 10,
         fontFamily: 'sans-serif',
         padding: 5
     },
