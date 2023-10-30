@@ -38,7 +38,7 @@ export default function HomeScreen({navigation}) {
                     <Pressable style={styles.section}>
                         <Ionicons name='earth' size={45} color='black' />
                         <View style={{paddingTop: 10}}>
-                            <Text style={styles.sectHead}>Section</Text>
+                            <Text style={styles.sectHead}>Astrophysics</Text>
                             <Text style={styles.sectPara}>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                             </Text>
@@ -48,18 +48,18 @@ export default function HomeScreen({navigation}) {
                     <Pressable style={styles.section}>
                         <Ionicons name='earth' size={45} color='black' />
                         <View style={{paddingTop: 10}}>
-                            <Text style={styles.sectHead}>Section</Text>
+                            <Text style={styles.sectHead}>Planetary science</Text>
                             <Text style={styles.sectPara}>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                             </Text>
                         </View>
                     </Pressable>
-                    </View>
-                    <View style={styles.div}>
+                    
+
                     <Pressable style={styles.section}>
                         <Ionicons name='earth' size={45} color='black' />
                         <View style={{paddingTop: 10}}>
-                            <Text style={styles.sectHead}>Section</Text>
+                            <Text style={styles.sectHead}>Geology</Text>
                             <Text style={styles.sectPara}>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                             </Text>
@@ -69,19 +69,18 @@ export default function HomeScreen({navigation}) {
                     <Pressable style={styles.section}>
                         <Ionicons name='earth' size={45} color='black' />
                         <View style={{paddingTop: 10}}>
-                            <Text style={styles.sectHead}>Section</Text>
+                            <Text style={styles.sectHead}>Aerospace</Text>
                             <Text style={styles.sectPara}>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                             </Text>
                         </View>
                     </Pressable>
-                    </View>
-                    <View style={styles.div}>
+                    
 
                     <Pressable style={styles.section}>
                         <Ionicons name='earth' size={45} color='black' />
                         <View style={{paddingTop: 10}}>
-                            <Text style={styles.sectHead}>Section</Text>
+                            <Text style={styles.sectHead}>Electronics</Text>
                             <Text style={styles.sectPara}>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                             </Text>
@@ -91,7 +90,7 @@ export default function HomeScreen({navigation}) {
                     <Pressable style={styles.section}>
                         <Ionicons name='earth' size={45} color='black' />
                         <View style={{paddingTop: 10}}>
-                            <Text style={styles.sectHead}>Section</Text>
+                            <Text style={styles.sectHead}>Data Science</Text>
                             <Text style={styles.sectPara}>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                             </Text>
@@ -121,14 +120,14 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         padding: 15,
         margin: 10,
-        width: 185,
-        height: 200,
+        width: 165,
+        height: 185,
         borderRadius: 10,
         backgroundColor: 'lightgray',
 
     },
     sectHead: {
-        fontSize: 13,
+        fontSize: 18,
         fontWeight: 'bold',
         paddingTop: 10,
         padding: 5,
@@ -136,7 +135,7 @@ const styles = StyleSheet.create({
         fontFamily: 'sans-serif-light',
     },
     sectPara: {
-        fontSize: 10,
+        fontSize: 12,
         fontFamily: 'sans-serif',
         padding: 5
     },
